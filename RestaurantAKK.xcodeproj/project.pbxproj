@@ -7,21 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97115E7921FE0B1C00EEC8B3 /* MadRet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97115E7821FE0B1C00EEC8B3 /* MadRet.swift */; };
+		97115E7B21FE0F0E00EEC8B3 /* Kategorier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97115E7A21FE0F0E00EEC8B3 /* Kategorier.swift */; };
+		97115E7D21FE137400EEC8B3 /* OrdreBrkraeftelse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97115E7C21FE137400EEC8B3 /* OrdreBrkraeftelse.swift */; };
+		97115E8021FE15BD00EEC8B3 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97115E7F21FE15BD00EEC8B3 /* RestaurantController.swift */; };
+		9717ED1722161DAD00287912 /* BestilKnap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9717ED1622161DAD00287912 /* BestilKnap.swift */; };
 		9732295E21F72F7400B001E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732295D21F72F7400B001E2 /* AppDelegate.swift */; };
-		9732296021F72F7400B001E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732295F21F72F7400B001E2 /* ViewController.swift */; };
 		9732296321F72F7400B001E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9732296121F72F7400B001E2 /* Main.storyboard */; };
 		9732296521F72FB400B001E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9732296421F72FB400B001E2 /* Assets.xcassets */; };
 		9732296821F72FB400B001E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9732296621F72FB400B001E2 /* LaunchScreen.storyboard */; };
+		97483D562233FFB300F8B7D6 /* MenuKortDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97483D552233FFB300F8B7D6 /* MenuKortDelegate.swift */; };
+		9767C5122220165F002ED464 /* TjenerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9767C5112220165F002ED464 /* TjenerDelegate.swift */; };
+		97C49F02224AA2BA0091A398 /* MadRetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C49F01224AA2BA0091A398 /* MadRetTableViewCell.swift */; };
+		97E13E4821F7415400B082BE /* KategoriTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E13E4721F7415400B082BE /* KategoriTableViewController.swift */; };
+		97E13E4A21F7416600B082BE /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E13E4921F7416600B082BE /* MenuTableViewController.swift */; };
+		97E13E4C21F741ED00B082BE /* MadRetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E13E4B21F741ED00B082BE /* MadRetViewController.swift */; };
+		97E13E4E21F7420B00B082BE /* OrdreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E13E4D21F7420B00B082BE /* OrdreTableViewController.swift */; };
+		97E13E5021F7423900B082BE /* BestillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E13E4F21F7423900B082BE /* BestillingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97115E7821FE0B1C00EEC8B3 /* MadRet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadRet.swift; sourceTree = "<group>"; };
+		97115E7A21FE0F0E00EEC8B3 /* Kategorier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kategorier.swift; sourceTree = "<group>"; };
+		97115E7C21FE137400EEC8B3 /* OrdreBrkraeftelse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdreBrkraeftelse.swift; sourceTree = "<group>"; };
+		97115E7F21FE15BD00EEC8B3 /* RestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
+		9717ED1622161DAD00287912 /* BestilKnap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestilKnap.swift; sourceTree = "<group>"; };
 		9732295A21F72F7400B001E2 /* RestaurantAKK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantAKK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9732295D21F72F7400B001E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9732295F21F72F7400B001E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9732296221F72F7400B001E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9732296421F72FB400B001E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9732296721F72FB400B001E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9732296921F72FB400B001E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97483D552233FFB300F8B7D6 /* MenuKortDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuKortDelegate.swift; sourceTree = "<group>"; };
+		9767C5112220165F002ED464 /* TjenerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TjenerDelegate.swift; sourceTree = "<group>"; };
+		97C49F01224AA2BA0091A398 /* MadRetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadRetTableViewCell.swift; sourceTree = "<group>"; };
+		97E13E4721F7415400B082BE /* KategoriTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KategoriTableViewController.swift; sourceTree = "<group>"; };
+		97E13E4921F7416600B082BE /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		97E13E4B21F741ED00B082BE /* MadRetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadRetViewController.swift; sourceTree = "<group>"; };
+		97E13E4D21F7420B00B082BE /* OrdreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdreTableViewController.swift; sourceTree = "<group>"; };
+		97E13E4F21F7423900B082BE /* BestillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestillingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +59,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97115E7721FE0AD400EEC8B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				97115E7821FE0B1C00EEC8B3 /* MadRet.swift */,
+				97115E7A21FE0F0E00EEC8B3 /* Kategorier.swift */,
+				97115E7C21FE137400EEC8B3 /* OrdreBrkraeftelse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		97115E7E21FE158D00EEC8B3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				97115E7F21FE15BD00EEC8B3 /* RestaurantController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9717ED1522161D8C00287912 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9717ED1622161DAD00287912 /* BestilKnap.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9732295121F72F7300B001E2 = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +104,40 @@
 		9732295C21F72F7400B001E2 /* RestaurantAKK */ = {
 			isa = PBXGroup;
 			children = (
+				9767C510222015D3002ED464 /* Protocols */,
+				9717ED1522161D8C00287912 /* Views */,
+				97115E7E21FE158D00EEC8B3 /* Controllers */,
+				97115E7721FE0AD400EEC8B3 /* Models */,
+				97E13E4621F740DF00B082BE /* ViewControllers */,
 				9732295D21F72F7400B001E2 /* AppDelegate.swift */,
-				9732295F21F72F7400B001E2 /* ViewController.swift */,
 				9732296121F72F7400B001E2 /* Main.storyboard */,
 				9732296421F72FB400B001E2 /* Assets.xcassets */,
 				9732296621F72FB400B001E2 /* LaunchScreen.storyboard */,
 				9732296921F72FB400B001E2 /* Info.plist */,
 			);
 			path = RestaurantAKK;
+			sourceTree = "<group>";
+		};
+		9767C510222015D3002ED464 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9767C5112220165F002ED464 /* TjenerDelegate.swift */,
+				97483D552233FFB300F8B7D6 /* MenuKortDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		97E13E4621F740DF00B082BE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				97E13E4721F7415400B082BE /* KategoriTableViewController.swift */,
+				97E13E4921F7416600B082BE /* MenuTableViewController.swift */,
+				97E13E4B21F741ED00B082BE /* MadRetViewController.swift */,
+				97E13E4D21F7420B00B082BE /* OrdreTableViewController.swift */,
+				97E13E4F21F7423900B082BE /* BestillingViewController.swift */,
+				97C49F01224AA2BA0091A398 /* MadRetTableViewCell.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +211,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9732296021F72F7400B001E2 /* ViewController.swift in Sources */,
+				97115E7B21FE0F0E00EEC8B3 /* Kategorier.swift in Sources */,
 				9732295E21F72F7400B001E2 /* AppDelegate.swift in Sources */,
+				97E13E4C21F741ED00B082BE /* MadRetViewController.swift in Sources */,
+				97E13E4821F7415400B082BE /* KategoriTableViewController.swift in Sources */,
+				97115E8021FE15BD00EEC8B3 /* RestaurantController.swift in Sources */,
+				97115E7921FE0B1C00EEC8B3 /* MadRet.swift in Sources */,
+				9767C5122220165F002ED464 /* TjenerDelegate.swift in Sources */,
+				9717ED1722161DAD00287912 /* BestilKnap.swift in Sources */,
+				97483D562233FFB300F8B7D6 /* MenuKortDelegate.swift in Sources */,
+				97E13E4A21F7416600B082BE /* MenuTableViewController.swift in Sources */,
+				97E13E4E21F7420B00B082BE /* OrdreTableViewController.swift in Sources */,
+				97E13E5021F7423900B082BE /* BestillingViewController.swift in Sources */,
+				97C49F02224AA2BA0091A398 /* MadRetTableViewCell.swift in Sources */,
+				97115E7D21FE137400EEC8B3 /* OrdreBrkraeftelse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
