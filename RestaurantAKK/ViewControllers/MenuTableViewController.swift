@@ -26,8 +26,6 @@ class MenuTableViewController: UITableViewController, MenuKortDelegate {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         //Netværksindikator
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -72,26 +70,6 @@ class MenuTableViewController: UITableViewController, MenuKortDelegate {
         cell.madRetNavnLabel.text = madRet.navn
         cell.prisLabel.text = String(format: "Kr: %.2f", madRet.pris)
         
-//        cell.textLabel?.text = madRet.navn
-//        //cell.detailTextLabel?.text = String(madRet.pris)
-//        cell.detailTextLabel?.text = String(format: "Kr: %.2f", madRet.pris)
-//        
-//        //Henter billede
-//        RestaurantController.shared.hentBillede(fraUrl: madRet.billedUrl) { (hentetBillede) in
-//            
-//            DispatchQueue.main.async {
-//                
-//                //Fordi at det kører i en tråd for sig selv, så kan vi rucikere at vi er kørt forbi den celle vi skulle have hentet billedet til. Så vi kontorllere at vi står på den rigtige indexPath, det har ingen betydning som appen er nu, da vi kører med en lokal server.
-//                if let aktueltIndexPath = self.tableView.indexPath(for: cell) {
-//                    if aktueltIndexPath != indexPath {
-//                        return
-//                    }
-//                }
-//                
-//                cell.imageView?.image = hentetBillede
-//            }
-//        }
-        
         return cell
     }
     
@@ -113,41 +91,6 @@ class MenuTableViewController: UITableViewController, MenuKortDelegate {
         }
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     //MARK: Delegate
     
