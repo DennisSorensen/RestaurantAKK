@@ -8,7 +8,7 @@
 
 import Foundation
 
-//tewlklfkwelk
+
 struct MadRet : Codable {
     
     //Det er det rå format som det ser ud fra json
