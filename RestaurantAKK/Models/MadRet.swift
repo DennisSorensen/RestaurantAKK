@@ -8,6 +8,8 @@
 
 import Foundation
 
+//bare en kommentar....
+
 struct MadRet : Codable {
     
     //Det er det rå format som det ser ud fra json
