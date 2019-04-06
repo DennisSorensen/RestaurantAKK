@@ -8,7 +8,6 @@
 
 import Foundation
 
-//HEJ MED DIG, SLET MIG
 
 struct MadRet : Codable {
     
