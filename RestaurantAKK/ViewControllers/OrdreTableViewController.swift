@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrdreTableViewController: UITableViewController, TjenerDelegate {
+class OrdreTableViewController: UITableViewController {
     
     //delt variabel, der indeholder leveringstid svar vi går fra serveren
     var leveringsMinutter : Int?
@@ -72,19 +72,6 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
     func opdaterBadge() {
         let badgeTekst = RestaurantController.shared.aktuelOrdre.madRetter.count > 0 ? "\(RestaurantController.shared.aktuelOrdre.madRetter.count)" : nil
         navigationController?.tabBarItem.badgeValue = badgeTekst
-    }
-    
-    //MARK: Delegate
-    
-    func madRetTilOrdren(madRet: MadRet) {
-        //Tilføjer madretten til ordren som vi har fået fra kunden
-        RestaurantController.shared.aktuelOrdre.madRetter.append(madRet)
-        //Tilføjer madretten til table view
-        let placering = IndexPath(row: RestaurantController.shared.aktuelOrdre.madRetter.count - 1, section: 0)
-        tableView.insertRows(at: [placering], with: .automatic)
-        
-        //Opdatere badgen til at vise brugeren vi har sat noget i ordren
-        opdaterBadge()
     }
 
     // MARK: - Table view data source
