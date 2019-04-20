@@ -11,8 +11,6 @@ import UIKit
 class MadRetViewController: UIViewController, MenuKortDelegate {
 
     var parmMadRet : MadRet!
-    //Tjener variabel som er den der skal tage mod vores bestilling
-    var tjenerDelegate : TjenerDelegate?
     
     //MARK: Outlets og actions
     @IBOutlet weak var bestilKnap: BestilKnap!
@@ -26,9 +24,6 @@ class MadRetViewController: UIViewController, MenuKortDelegate {
 //        //Gemmer vores madret i vores globale variabel
 //        let applikation = UIApplication.shared.delegate as! AppDelegate //Får vores appDelegate, hvor vores variabel ligger i. og jeg forceunwrapper pga. vores app kan slet ikke køre uden denne fil
 //        applikation.aktuelBestilling.append(parmMadRet)
-        
-        //Giver ansvaret vidre
-        tjenerDelegate?.madRetTilOrdren(madRet: parmMadRet) 
     }
     
     //MARK: Functions
