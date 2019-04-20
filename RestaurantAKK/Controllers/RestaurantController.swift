@@ -11,7 +11,11 @@ import UIKit
 class RestaurantController {
     
     //Variabel til at holde den delte ordreSeddel for den aktuelle ordre
-    var aktuelOrdre = OrdreSeddel()
+    var aktuelOrdre = OrdreSeddel() {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: RestaurantController.ordreOpdNotifikationsNavn), object: nil)
+        }
+    }
     
     //Vores base url til api'en
     let basisUrl = URL(string: "http://localhost:8090/")! //Force-unwrapper fordi vi er sikker på den lykkedes
