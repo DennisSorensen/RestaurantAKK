@@ -40,25 +40,8 @@ class MadRetViewController: UIViewController, MenuKortDelegate {
         // Do any additional setup after loading the view.
         
         updateUI()
-        
-        //Sætter tjener
-        if tjenerDelegate == nil {
-            definerTjener()
-        }
-        
     }
     
-    //Funcktion til at finde vores tjener, ham som skal udføre vores opgaver vi stiller ham
-    func definerTjener() {
-        if let navController = tabBarController?.viewControllers?.last as? UINavigationController {
-            //Nu har vi navigation controller, osm r far til vores ordreseddel view controller
-            if let tjenerController = navController.viewControllers.first as? OrdreTableViewController {
-                //Nu har vi vores ordre table view controller (vores tjener)
-                tjenerDelegate = tjenerController
-                
-            }
-        }
-    }
     
     func updateUI() {
         madRetTitel.text = parmMadRet.navn
