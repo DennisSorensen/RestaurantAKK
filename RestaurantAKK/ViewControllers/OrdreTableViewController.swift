@@ -11,7 +11,7 @@ import UIKit
 class OrdreTableViewController: UITableViewController, TjenerDelegate {
     
     //Model til datasource
-    var madRetter = [MadRet]()
+    var ordreSeddel = OrdreSeddel()
     //delt variabel, der indeholder leveringstid svar vi går fra serveren
     var leveringsMinutter : Int?
     //Delegate til menuKortDelegate
@@ -21,7 +21,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
     @IBAction func bestilKnapTrykket(_ sender: UIBarButtonItem) {
         
         //Hvad er min ordre total
-        let ordreTotal = madRetter.reduce(0.0) { (subtotal, madRet) -> Double in
+        let ordreTotal = ordreSeddel.madRetter.reduce(0.0) { (subtotal, madRet) -> Double in
             return subtotal + madRet.pris
         }
         let samletKoebTekst = String(format: "Kr: %.2f", ordreTotal) //Formaterer int med kr på
@@ -61,7 +61,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
         //TODO: Kod logikken til at bestille maden
         print("Nu bestiller vi maden")
         
-        let madRetNumre = madRetter.map { $0.retNummer } //For hver madret returnerer jeg retnumret
+        let madRetNumre = ordreSeddel.madRetter.map { $0.retNummer } //For hver madret returnerer jeg retnumret
         
         print(madRetNumre)
         
@@ -81,7 +81,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
     }
     
     func opdaterBadge() {
-        let badgeTekst = madRetter.count > 0 ? "\(madRetter.count)" : nil
+        let badgeTekst = ordreSeddel.madRetter.count > 0 ? "\(ordreSeddel.madRetter.count)" : nil
         navigationController?.tabBarItem.badgeValue = badgeTekst
     }
     
@@ -89,9 +89,9 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
     
     func madRetTilOrdren(madRet: MadRet) {
         //Tilføjer madretten til ordren som vi har fået fra kunden
-        madRetter.append(madRet)
+        ordreSeddel.madRetter.append(madRet)
         //Tilføjer madretten til table view
-        let placering = IndexPath(row: madRetter.count - 1, section: 0)
+        let placering = IndexPath(row: ordreSeddel.madRetter.count - 1, section: 0)
         tableView.insertRows(at: [placering], with: .automatic)
         
         //Opdatere badgen til at vise brugeren vi har sat noget i ordren
@@ -107,7 +107,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return madRetter.count
+        return ordreSeddel.madRetter.count
     }
     
     
@@ -115,7 +115,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ordreListeCelle", for: indexPath)
         
         // Configure the cell...
-        let madRet = madRetter[indexPath.row]
+        let madRet = ordreSeddel.madRetter[indexPath.row]
         
         cell.textLabel?.text = madRet.navn
         //cell.detailTextLabel?.text = String(madRet.pris)
@@ -155,7 +155,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            madRetter.remove(at: indexPath.row)
+            ordreSeddel.madRetter.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } /*else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -219,7 +219,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
         if unwindSegue.identifier == "bekræftetOKSegue" {
             //Så har brugeren set leverings tidspunkt og jeg kan rydde op
             //Først fydder vi data
-            madRetter.removeAll()
+            ordreSeddel.madRetter.removeAll()
             //Opdater view
             tableView.reloadData()
             //Opdater badge
