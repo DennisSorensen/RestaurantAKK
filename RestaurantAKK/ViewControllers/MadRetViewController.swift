@@ -21,9 +21,8 @@ class MadRetViewController: UIViewController, MenuKortDelegate {
     
     @IBAction func bestilKnapKlikket(_ sender: BestilKnap) {
         sender.klikAnimation()
-//        //Gemmer vores madret i vores globale variabel
-//        let applikation = UIApplication.shared.delegate as! AppDelegate //Får vores appDelegate, hvor vores variabel ligger i. og jeg forceunwrapper pga. vores app kan slet ikke køre uden denne fil
-//        applikation.aktuelBestilling.append(parmMadRet)
+        //Tilføjer madretten til den delte resource
+        RestaurantController.shared.aktuelOrdre.tilføjMadRet(madRet: parmMadRet)
     }
     
     //MARK: Functions
