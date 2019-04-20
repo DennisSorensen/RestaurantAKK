@@ -46,13 +46,6 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let applikation = UIApplication.shared.delegate as! AppDelegate //Får vores appDelegate, hvor vores variabel ligger i. og jeg forceunwrapper pga. vores app kan slet ikke køre uden denne fil
-        print(applikation.aktuelBestilling)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
@@ -76,8 +69,6 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
                 }
             }
         }
-        
-        
     }
     
     func opdaterBadge() {
