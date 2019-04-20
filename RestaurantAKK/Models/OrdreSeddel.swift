@@ -15,4 +15,9 @@ struct OrdreSeddel {
     init(madRetter: [MadRet] = []) {
         self.madRetter = madRetter
     }
+    
+    //Funktion der tilføjer madretter til ordren
+    public mutating func tilføjMadRet(madRet: MadRet) {
+        self.madRetter.append(madRet)
+    }
 }
