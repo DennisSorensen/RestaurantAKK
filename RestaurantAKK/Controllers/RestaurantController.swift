@@ -167,4 +167,7 @@ class RestaurantController {
         print("Pause i \(pauseSekunder) for \(forUrl)")
         sleep(pauseSekunder)
     }
+    
+    //Radionsignal navn
+    static let ordreOpdNotifikationsNavn = "dk.eat.just.ordreOpd"
 }
