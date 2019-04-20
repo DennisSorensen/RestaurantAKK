@@ -45,6 +45,15 @@ class OrdreTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        //Jeg vil have besked når ordreseddlen opdateres
+        NotificationCenter.default.addObserver(self, selector: #selector(opdaterOrdreSeddel), name: Notification.Name(RestaurantController.ordreOpdNotifikationsNavn), object: nil)
+    }
+    
+    //Vi laver funktion der skal afvikles når der kommer besked fra notifikationscenter om at modellen er opdateret
+    @objc func opdaterOrdreSeddel() {
+        tableView.reloadData()
+        opdaterBadge()
     }
     
     //funktion til at bestille maden
@@ -132,11 +141,9 @@ class OrdreTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             RestaurantController.shared.aktuelOrdre.madRetter.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
         } /*else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }   */
-        opdaterBadge()
     }
     
 
