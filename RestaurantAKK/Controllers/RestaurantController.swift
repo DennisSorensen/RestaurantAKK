@@ -13,7 +13,7 @@ class RestaurantController {
     //Variabel til at holde den delte ordreSeddel for den aktuelle ordre
     var aktuelOrdre = OrdreSeddel() {
         didSet {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: RestaurantController.ordreOpdNotifikationsNavn), object: nil)
+            NotificationCenter.default.post(name: RestaurantController.ordreOpdNotifikationsNavn, object: nil)
         }
     }
     
@@ -173,5 +173,5 @@ class RestaurantController {
     }
     
     //Radionsignal navn
-    static let ordreOpdNotifikationsNavn = "dk.eat.just.ordreOpd"
+    static let ordreOpdNotifikationsNavn = Notification.Name("dk.eat.just.ordreOpd")
 }

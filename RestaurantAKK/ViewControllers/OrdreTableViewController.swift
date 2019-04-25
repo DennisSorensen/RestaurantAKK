@@ -47,7 +47,7 @@ class OrdreTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         
         //Jeg vil have besked når ordreseddlen opdateres
-        NotificationCenter.default.addObserver(self, selector: #selector(opdaterOrdreSeddel), name: Notification.Name(RestaurantController.ordreOpdNotifikationsNavn), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(opdaterOrdreSeddel), name: RestaurantController.ordreOpdNotifikationsNavn, object: nil)
     }
     
     //Vi laver funktion der skal afvikles når der kommer besked fra notifikationscenter om at modellen er opdateret
@@ -127,7 +127,6 @@ class OrdreTableViewController: UITableViewController {
         return cell
     }
     
-
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -135,7 +134,6 @@ class OrdreTableViewController: UITableViewController {
         return true
     }
     
-
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
