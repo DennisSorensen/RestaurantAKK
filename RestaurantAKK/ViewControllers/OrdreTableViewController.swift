@@ -8,10 +8,8 @@
 
 import UIKit
 
-class OrdreTableViewController: UITableViewController, TjenerDelegate {
+class OrdreTableViewController: UITableViewController {
     
-    //Model til datasource
-    var madRetter = [MadRet]()
     //delt variabel, der indeholder leveringstid svar vi går fra serveren
     var leveringsMinutter : Int?
     //Delegate til menuKortDelegate
@@ -21,7 +19,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
     @IBAction func bestilKnapTrykket(_ sender: UIBarButtonItem) {
         
         //Hvad er min ordre total
-        let ordreTotal = madRetter.reduce(0.0) { (subtotal, madRet) -> Double in
+        let ordreTotal = RestaurantController.shared.aktuelOrdre.madRetter.reduce(0.0) { (subtotal, madRet) -> Double in
             return subtotal + madRet.pris
         }
         let samletKoebTekst = String(format: "Kr: %.2f", ordreTotal) //Formaterer int med kr på
@@ -46,14 +44,16 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let applikation = UIApplication.shared.delegate as! AppDelegate //Får vores appDelegate, hvor vores variabel ligger i. og jeg forceunwrapper pga. vores app kan slet ikke køre uden denne fil
-        print(applikation.aktuelBestilling)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        //Jeg vil have besked når ordreseddlen opdateres
+        NotificationCenter.default.addObserver(self, selector: #selector(opdaterOrdreSeddel), name: Notification.Name(RestaurantController.ordreOpdNotifikationsNavn), object: nil)
+    }
+    
+    //Vi laver funktion der skal afvikles når der kommer besked fra notifikationscenter om at modellen er opdateret
+    @objc func opdaterOrdreSeddel() {
+        tableView.reloadData()
+        opdaterBadge()
     }
     
     //funktion til at bestille maden
@@ -61,7 +61,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
         //TODO: Kod logikken til at bestille maden
         print("Nu bestiller vi maden")
         
-        let madRetNumre = madRetter.map { $0.retNummer } //For hver madret returnerer jeg retnumret
+        let madRetNumre = RestaurantController.shared.aktuelOrdre.madRetter.map { $0.retNummer } //For hver madret returnerer jeg retnumret
         
         print(madRetNumre)
         
@@ -76,26 +76,11 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
                 }
             }
         }
-        
-        
     }
     
     func opdaterBadge() {
-        let badgeTekst = madRetter.count > 0 ? "\(madRetter.count)" : nil
+        let badgeTekst = RestaurantController.shared.aktuelOrdre.madRetter.count > 0 ? "\(RestaurantController.shared.aktuelOrdre.madRetter.count)" : nil
         navigationController?.tabBarItem.badgeValue = badgeTekst
-    }
-    
-    //MARK: Delegate
-    
-    func madRetTilOrdren(madRet: MadRet) {
-        //Tilføjer madretten til ordren som vi har fået fra kunden
-        madRetter.append(madRet)
-        //Tilføjer madretten til table view
-        let placering = IndexPath(row: madRetter.count - 1, section: 0)
-        tableView.insertRows(at: [placering], with: .automatic)
-        
-        //Opdatere badgen til at vise brugeren vi har sat noget i ordren
-        opdaterBadge()
     }
 
     // MARK: - Table view data source
@@ -107,7 +92,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return madRetter.count
+        return RestaurantController.shared.aktuelOrdre.madRetter.count
     }
     
     
@@ -115,7 +100,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ordreListeCelle", for: indexPath)
         
         // Configure the cell...
-        let madRet = madRetter[indexPath.row]
+        let madRet = RestaurantController.shared.aktuelOrdre.madRetter[indexPath.row]
         
         cell.textLabel?.text = madRet.navn
         //cell.detailTextLabel?.text = String(madRet.pris)
@@ -155,12 +140,10 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            madRetter.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            RestaurantController.shared.aktuelOrdre.madRetter.remove(at: indexPath.row)
         } /*else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }   */
-        opdaterBadge()
     }
     
 
@@ -219,7 +202,7 @@ class OrdreTableViewController: UITableViewController, TjenerDelegate {
         if unwindSegue.identifier == "bekræftetOKSegue" {
             //Så har brugeren set leverings tidspunkt og jeg kan rydde op
             //Først fydder vi data
-            madRetter.removeAll()
+            RestaurantController.shared.aktuelOrdre.madRetter.removeAll()
             //Opdater view
             tableView.reloadData()
             //Opdater badge

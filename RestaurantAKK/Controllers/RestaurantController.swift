@@ -9,6 +9,14 @@
 import UIKit
 
 class RestaurantController {
+    
+    //Variabel til at holde den delte ordreSeddel for den aktuelle ordre
+    var aktuelOrdre = OrdreSeddel() {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: RestaurantController.ordreOpdNotifikationsNavn), object: nil)
+        }
+    }
+    
     //Vores base url til api'en
     let basisUrl = URL(string: "http://localhost:8090/")! //Force-unwrapper fordi vi er sikker på den lykkedes
     
@@ -155,7 +163,7 @@ class RestaurantController {
         task.resume()
     }
     
-    //MARK: Static
+    //MARK: STATIC
     static let shared = RestaurantController()
     
     static func simulerForsinkelse(forUrl: URL) {
@@ -163,4 +171,7 @@ class RestaurantController {
         print("Pause i \(pauseSekunder) for \(forUrl)")
         sleep(pauseSekunder)
     }
+    
+    //Radionsignal navn
+    static let ordreOpdNotifikationsNavn = "dk.eat.just.ordreOpd"
 }

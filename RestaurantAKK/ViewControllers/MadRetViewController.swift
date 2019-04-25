@@ -11,8 +11,6 @@ import UIKit
 class MadRetViewController: UIViewController, MenuKortDelegate {
 
     var parmMadRet : MadRet!
-    //Tjener variabel som er den der skal tage mod vores bestilling
-    var tjenerDelegate : TjenerDelegate?
     
     //MARK: Outlets og actions
     @IBOutlet weak var bestilKnap: BestilKnap!
@@ -23,12 +21,8 @@ class MadRetViewController: UIViewController, MenuKortDelegate {
     
     @IBAction func bestilKnapKlikket(_ sender: BestilKnap) {
         sender.klikAnimation()
-//        //Gemmer vores madret i vores globale variabel
-//        let applikation = UIApplication.shared.delegate as! AppDelegate //Får vores appDelegate, hvor vores variabel ligger i. og jeg forceunwrapper pga. vores app kan slet ikke køre uden denne fil
-//        applikation.aktuelBestilling.append(parmMadRet)
-        
-        //Giver ansvaret vidre
-        tjenerDelegate?.madRetTilOrdren(madRet: parmMadRet) 
+        //Tilføjer madretten til den delte resource
+        RestaurantController.shared.aktuelOrdre.tilføjMadRet(madRet: parmMadRet)
     }
     
     //MARK: Functions
@@ -40,25 +34,8 @@ class MadRetViewController: UIViewController, MenuKortDelegate {
         // Do any additional setup after loading the view.
         
         updateUI()
-        
-        //Sætter tjener
-        if tjenerDelegate == nil {
-            definerTjener()
-        }
-        
     }
     
-    //Funcktion til at finde vores tjener, ham som skal udføre vores opgaver vi stiller ham
-    func definerTjener() {
-        if let navController = tabBarController?.viewControllers?.last as? UINavigationController {
-            //Nu har vi navigation controller, osm r far til vores ordreseddel view controller
-            if let tjenerController = navController.viewControllers.first as? OrdreTableViewController {
-                //Nu har vi vores ordre table view controller (vores tjener)
-                tjenerDelegate = tjenerController
-                
-            }
-        }
-    }
     
     func updateUI() {
         madRetTitel.text = parmMadRet.navn
