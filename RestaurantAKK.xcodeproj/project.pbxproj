@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		958C35832272004200CBCA56 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958C35822272004200CBCA56 /* MainTabBarController.swift */; };
 		9590BB31226B43F900024C9C /* OrdreSeddel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590BB30226B43F900024C9C /* OrdreSeddel.swift */; };
 		97115E7921FE0B1C00EEC8B3 /* MadRet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97115E7821FE0B1C00EEC8B3 /* MadRet.swift */; };
 		97115E7B21FE0F0E00EEC8B3 /* Kategorier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97115E7A21FE0F0E00EEC8B3 /* Kategorier.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		958C35822272004200CBCA56 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		9590BB30226B43F900024C9C /* OrdreSeddel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdreSeddel.swift; sourceTree = "<group>"; };
 		97115E7821FE0B1C00EEC8B3 /* MadRet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadRet.swift; sourceTree = "<group>"; };
 		97115E7A21FE0F0E00EEC8B3 /* Kategorier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kategorier.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				97115E7F21FE15BD00EEC8B3 /* RestaurantController.swift */,
+				958C35822272004200CBCA56 /* MainTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				9717ED1722161DAD00287912 /* BestilKnap.swift in Sources */,
 				97483D562233FFB300F8B7D6 /* MenuKortDelegate.swift in Sources */,
 				97E13E4A21F7416600B082BE /* MenuTableViewController.swift in Sources */,
+				958C35832272004200CBCA56 /* MainTabBarController.swift in Sources */,
 				97E13E4E21F7420B00B082BE /* OrdreTableViewController.swift in Sources */,
 				97E13E5021F7423900B082BE /* BestillingViewController.swift in Sources */,
 				97C49F02224AA2BA0091A398 /* MadRetTableViewCell.swift in Sources */,

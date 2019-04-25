@@ -53,7 +53,7 @@ class OrdreTableViewController: UITableViewController {
     //Vi laver funktion der skal afvikles når der kommer besked fra notifikationscenter om at modellen er opdateret
     @objc func opdaterOrdreSeddel() {
         tableView.reloadData()
-        opdaterBadge()
+
     }
     
     //funktion til at bestille maden
@@ -78,10 +78,6 @@ class OrdreTableViewController: UITableViewController {
         }
     }
     
-    func opdaterBadge() {
-        let badgeTekst = RestaurantController.shared.aktuelOrdre.madRetter.count > 0 ? "\(RestaurantController.shared.aktuelOrdre.madRetter.count)" : nil
-        navigationController?.tabBarItem.badgeValue = badgeTekst
-    }
 
     // MARK: - Table view data source
 
@@ -204,8 +200,6 @@ class OrdreTableViewController: UITableViewController {
             RestaurantController.shared.aktuelOrdre.madRetter.removeAll()
             //Opdater view
             tableView.reloadData()
-            //Opdater badge
-            self.opdaterBadge()
             
             //Nulstiller menukort
             definerMenuKortDelegate()?.startForfra()
