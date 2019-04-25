@@ -19,7 +19,7 @@ class MenuTableViewController: UITableViewController, MenuKortDelegate {
         super.viewDidLoad()
 
         //Teste om vores parameter virker
-        print("Overført parameter kategorri = \(parmKategori)")
+        //print("Overført parameter kategorri = \(parmKategori)")
         //Sætter titlen
         self.title = parmKategori.capitalized
         
