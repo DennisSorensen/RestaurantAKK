@@ -31,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Spørger om vi så sende notifikationer
         tilladNotifikationer()
         
+        //Kald badge opdateringsfunktion når ordreseddlen ændre sig
+        MainTabBarController.shared.tilmeldObserver()
+        
         return true
     }
 
