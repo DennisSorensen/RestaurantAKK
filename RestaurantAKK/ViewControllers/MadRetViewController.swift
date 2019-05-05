@@ -34,6 +34,8 @@ class MadRetViewController: UIViewController, MenuKortDelegate {
         // Do any additional setup after loading the view.
         
         updateUI()
+        
+        print(self.restorationIdentifier ?? "NIELS")
     }
     
     
@@ -71,4 +73,17 @@ class MadRetViewController: UIViewController, MenuKortDelegate {
     }
     */
 
+    //MARK: SAVE STATE
+    //Formaål med enum er at have ET sted hvor vi retter state id navne
+    enum Keys: String {
+        case retNummer = "madretNummer"
+    }
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        //Her skal vi gemme det data der skal til for at vores viewController kan starte op fra gemt tilstand
+        coder.encode(parmMadRet.retNummer, forKey: Keys.retNummer.rawValue)
+        
+        super.encodeRestorableState(with: coder)
+    }
+    
 }
