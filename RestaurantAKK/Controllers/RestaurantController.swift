@@ -163,6 +163,27 @@ class RestaurantController {
         task.resume()
     }
     
+    //MARK: ORDREFIL
+    func loadOrdre() {
+        guard let ordreData = try? Data(contentsOf: OrdreSeddel.fileURL) else {return}
+        
+        if let hentetOrdre = try? JSONDecoder().decode(OrdreSeddel.self, from: ordreData) {
+            aktuelOrdre = hentetOrdre
+            print("Ordreseddel er hentet")
+        }
+        else {
+            //Laver en tom ordreseddel
+            aktuelOrdre = OrdreSeddel()
+        }
+    }
+    
+    func saveOrdre() {
+        if let ordreData = try? JSONEncoder().encode(aktuelOrdre) {
+            try? ordreData.write(to: OrdreSeddel.fileURL)
+            print("Ordreseddel er gemt")
+        }
+    }
+    
     //MARK: STATIC
     static let shared = RestaurantController()
     
