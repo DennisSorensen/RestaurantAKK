@@ -15,6 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        //Læse ordreseddlen ind
+        RestaurantController.shared.laodStateData()
+        
+        return true
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -34,10 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Kald badge opdateringsfunktion når ordreseddlen ændre sig
         MainTabBarController.shared.tilmeldObserver()
         
-        //Læse ordreseddlen ind
-        RestaurantController.shared.loadOrdre()
-        RestaurantController.shared.stateController.restoreState()
-        
         return true
     }
 
@@ -51,8 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         //Save ordreseddel
-        RestaurantController.shared.saveOrdre()
-        RestaurantController.shared.stateController.saveState()
+        RestaurantController.shared.saveStateData()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

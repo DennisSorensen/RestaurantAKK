@@ -190,6 +190,17 @@ class RestaurantController {
         }
     }
     
+    //Styr state hent og gem ordre fil og kategoridata
+    public func saveStateData() {
+        self.saveOrdre()
+        self.stateController.saveState()
+    }
+    
+    public func laodStateData() {
+        self.loadOrdre()
+        self.stateController.restoreState()
+    }
+    
     //MARK: STATIC
     static let shared = RestaurantController()
     

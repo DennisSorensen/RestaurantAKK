@@ -18,15 +18,16 @@ class MenuTableViewController: UITableViewController, MenuKortDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //Teste om vores parameter virker
-        //print("Overført parameter kategorri = \(parmKategori)")
-        //Sætter titlen
-        self.title = parmKategori.capitalized
+        //Hvis der er noget i parm kategori, så ved jeg vi er kaldt fra en segue i view did load
+        //Hvis ikke så er der tale om at vi er i restore state tilstand, for så sættes parm kategori senere
+        if let _ = parmKategori {
+            hentRetterFraServer()
+        }
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        
+        updateUI()
+    }
+    
+    func hentRetterFraServer() {
         //Netværksindikator
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
@@ -35,6 +36,13 @@ class MenuTableViewController: UITableViewController, MenuKortDelegate {
                 self.updateUI(med: hentetMenu)
             }
         }
+    }
+    
+    func updateUI() {
+        guard let _ = parmKategori else {return}
+        
+        //Sætter titlen
+        self.title = parmKategori.capitalized
     }
 
     func updateUI(med madRetter: [MadRet]) {

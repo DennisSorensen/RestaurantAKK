@@ -28,10 +28,6 @@ class MadRetViewController: UIViewController, MenuKortDelegate {
     //MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("Overført værdi: \(parmMadRet.navn)")
-        
-        // Do any additional setup after loading the view.
         
         updateUI()
         
@@ -40,6 +36,9 @@ class MadRetViewController: UIViewController, MenuKortDelegate {
     
     
     func updateUI() {
+        //Vi beskytter os mod at view did load kaldes før restore state, ved at hoppe ud hvis parameter ikke er sat
+        guard let _ = parmMadRet else {return}
+        
         madRetTitel.text = parmMadRet.navn
         madRetPrisLabel.text = String(format: "Kr: %.2f", parmMadRet.pris)
         madRetBeskrivelse.text = parmMadRet.beskrivelse
