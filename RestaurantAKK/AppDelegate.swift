@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Læse ordreseddlen ind
         RestaurantController.shared.loadOrdre()
+        RestaurantController.shared.stateController.restoreState()
         
         return true
     }
@@ -51,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Save ordreseddel
         RestaurantController.shared.saveOrdre()
+        RestaurantController.shared.stateController.saveState()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
