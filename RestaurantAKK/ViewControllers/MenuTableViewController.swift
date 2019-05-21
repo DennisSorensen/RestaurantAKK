@@ -132,5 +132,21 @@ class MenuTableViewController: UITableViewController, MenuKortDelegate {
         
         super.encodeRestorableState(with: coder)
     }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        
+        //Så decoder jeg kategorien
+        if let kategori = coder.decodeObject(forKey: Keys.madKategori.rawValue) as? String {
+            
+            //Så sætter vi parameter variablen, somom jeg var kaldt med en segue
+            parmKategori = kategori
+            
+            //Vi skal opdatere ui
+            if let madRetter = RestaurantController.shared.stateController.madRetter(forKategori: kategori) {
+                self.updateUI(med: madRetter)
+            }
+        }
+    }
 
 }

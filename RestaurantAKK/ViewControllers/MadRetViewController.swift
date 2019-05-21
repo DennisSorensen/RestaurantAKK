@@ -86,4 +86,16 @@ class MadRetViewController: UIViewController, MenuKortDelegate {
         super.encodeRestorableState(with: coder)
     }
     
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        
+        //vi pakker den gemte id ud
+        let retNummer = Int(coder.decodeInt32(forKey: Keys.retNummer.rawValue))
+        
+        //slå  retten op i vores gemte data
+        if let madRet = RestaurantController.shared.stateController.madRet(medId: retNummer) {
+            parmMadRet = madRet
+            updateUI()
+        }
+    }
 }
