@@ -46,7 +46,7 @@ class RestaurantStateController {
             retterMedKategori.removeValue(forKey: kategori)
         }
         //her har vi fjernet data, hvis det var der i forvejen og så gemmer vi nyt data
-        if let nyeMadRetter = madRetter {
+        if let _ = madRetter {
             retterMedKategori[kategori] = madRetter
             
             //Husk at kalde funktion til opdatering af retter med id
@@ -55,5 +55,31 @@ class RestaurantStateController {
         
         print("StateController opdateret")
         print(retterMedKategori)
+    }
+    
+    //URL til state variabel
+    static var fileURL : URL {
+        //URL til brugeren dokumenter
+        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let ordreFilUrl = documentURL.appendingPathComponent("kategorier").appendingPathExtension("json")
+        return ordreFilUrl
+    }
+    
+    //MARK: state til gem og load
+    func restoreState() {
+        guard let kategoriData = try? Data(contentsOf: RestaurantStateController.fileURL) else {return}
+        
+        if let hentetKategorier = try? JSONDecoder().decode([String:[MadRet]].self, from: kategoriData) {
+            retterMedKategori = hentetKategorier
+            self.opdaterMadRetIdIndex()
+            print("KategoriRetter fil er indlæst")
+        }
+    }
+    
+    func saveState() {
+        if let kategoriData = try? JSONEncoder().encode(retterMedKategori) {
+            try? kategoriData.write(to: RestaurantStateController.fileURL)
+            print("kategorier er gemt")
+        }
     }
 }
