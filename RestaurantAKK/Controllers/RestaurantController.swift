@@ -90,7 +90,6 @@ class RestaurantController {
         task.resume()
     }
     
-    
     //Post bestilling og få en ordre bekræftelse retur
     public func sendBestilling(valgteRetNumre: [Int], completion: @escaping (Int?) -> Void) {
         //Laver url
