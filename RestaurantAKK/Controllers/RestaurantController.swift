@@ -17,6 +17,9 @@ class RestaurantController {
         }
     }
     
+    //til at gemme min retsturant state controller
+    var stateController = RestaurantStateController()
+    
     //Vores base url til api'en
     let basisUrl = URL(string: "http://localhost:8090/")! //Force-unwrapper fordi vi er sikker på den lykkedes
     
@@ -70,6 +73,9 @@ class RestaurantController {
                 let dekoder = JSONDecoder()
                 
                 let madRetter = try? dekoder.decode(MadRetter.self, from: serverSvar)
+                
+                //Kalde opdateringsfunktion til gemning af ofline data til save state
+                self.stateController.opdater(kategori: kategori, medMadretter: madRetter?.madretter)
                 
                 completion(madRetter?.madretter)
             }

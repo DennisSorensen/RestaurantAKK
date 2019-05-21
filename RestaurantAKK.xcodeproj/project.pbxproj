@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		958C2ED722942BF700350389 /* RestaurantStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958C2ED622942BF700350389 /* RestaurantStateController.swift */; };
 		958C35832272004200CBCA56 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958C35822272004200CBCA56 /* MainTabBarController.swift */; };
 		9590BB31226B43F900024C9C /* OrdreSeddel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590BB30226B43F900024C9C /* OrdreSeddel.swift */; };
 		97115E7921FE0B1C00EEC8B3 /* MadRet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97115E7821FE0B1C00EEC8B3 /* MadRet.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		958C2ED622942BF700350389 /* RestaurantStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantStateController.swift; sourceTree = "<group>"; };
 		958C35822272004200CBCA56 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		9590BB30226B43F900024C9C /* OrdreSeddel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdreSeddel.swift; sourceTree = "<group>"; };
 		97115E7821FE0B1C00EEC8B3 /* MadRet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadRet.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				97115E7F21FE15BD00EEC8B3 /* RestaurantController.swift */,
 				958C35822272004200CBCA56 /* MainTabBarController.swift */,
+				958C2ED622942BF700350389 /* RestaurantStateController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			files = (
 				97115E7B21FE0F0E00EEC8B3 /* Kategorier.swift in Sources */,
 				9732295E21F72F7400B001E2 /* AppDelegate.swift in Sources */,
+				958C2ED722942BF700350389 /* RestaurantStateController.swift in Sources */,
 				97E13E4C21F741ED00B082BE /* MadRetViewController.swift in Sources */,
 				97E13E4821F7415400B082BE /* KategoriTableViewController.swift in Sources */,
 				97115E8021FE15BD00EEC8B3 /* RestaurantController.swift in Sources */,

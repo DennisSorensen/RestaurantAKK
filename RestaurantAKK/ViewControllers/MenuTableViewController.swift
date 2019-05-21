@@ -120,5 +120,17 @@ class MenuTableViewController: UITableViewController, MenuKortDelegate {
         }
     }
     
+    //MARK: STATE HANDLING
+    //Formaål med enum er at have ET sted hvor vi retter state id navne
+    enum Keys: String {
+        case madKategori = "madKategori"
+    }
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        //Her skal vi gemme det data der skal til for at vores viewController kan starte op fra gemt tilstand
+        coder.encode(parmKategori, forKey: Keys.madKategori.rawValue)
+        
+        super.encodeRestorableState(with: coder)
+    }
 
 }
