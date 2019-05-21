@@ -79,10 +79,10 @@ class MadRetViewController: UIViewController, MenuKortDelegate {
     }
     
     override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        
         //Her skal vi gemme det data der skal til for at vores viewController kan starte op fra gemt tilstand
         coder.encode(parmMadRet.retNummer, forKey: Keys.retNummer.rawValue)
-        
-        super.encodeRestorableState(with: coder)
     }
     
     override func decodeRestorableState(with coder: NSCoder) {
